@@ -1,6 +1,5 @@
-.navBar {
+.heroImage {
     text-align: center;
     border: 1px solid;
-    position: fixed;
-    width: 100%;
+    padding-top:5px;
 }
