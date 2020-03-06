@@ -9,10 +9,9 @@ export default class EncountersList extends Component {
   static contextType = DungeonContext;
 
   render(){
-    console.log(this.context.encountersArray)
-    const displayEncounters = this.context.encountersArray.map(item =>  {
+    const displayEncounters = this.context.encountersArray.map((item, index) =>  {
         return (
-            <div className='encountersList-div'>
+            <div key={index} className='encountersList-div'>
                 <p>Name: {item.names}</p>
                 <EncountersListViewButton encounterId={item.id} />
                 <EncountersListDeleteButton encounterId={item.id} />

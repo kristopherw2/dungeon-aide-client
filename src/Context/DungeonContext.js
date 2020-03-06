@@ -1,8 +1,10 @@
-import React, { useImperativeHandle } from "react";
+import React from "react";
 
 const DungeonContext = React.createContext({
     encountersArray: [],
-    handleUpdateEncountersArray: () => {}
+    createdEncounter: [],
+    handleUpdateEncountersArray: () => {},
+    handleCreatedEncounter: () => {}
 });
 
 export default DungeonContext;

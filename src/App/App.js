@@ -9,7 +9,8 @@ class App extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            encountersArray: []
+            encountersArray: [],
+            createdEncounter: []
         };
     }
 
@@ -19,27 +20,37 @@ class App extends Component {
         });
     };
 
+    handleCreatedEncounter = encounter => {
+        this.setState({
+            createdEncounter: [...encounter]
+        });
+    };
+
     render() {
         return (
             <DungeonContext.Provider
                 value={{
                     encountersArray: this.state.encountersArray,
+                    createdEncounter: this.state.createdEncounter,
                     handleUpdateEncountersArray: this
-                        .handleUpdateEncountersArray
+                        .handleUpdateEncountersArray,
+                    handleCreatedEncounter: this.handleCreatedEncounter
                 }}
             >
                 <div>
-                    <Route exact path={"/"} component={LandingPage} />
-                    <Route
-                        exact
-                        path={"/encounters"}
-                        component={EncountersHomepage}
-                    />
-                    <Route
-                        exact
-                        path={"/encountercreate"}
-                        component={EncountersCreation}
-                    />
+                    <Switch>
+                        <Route exact path={"/"} component={LandingPage} />
+                        <Route
+                            exact
+                            path={"/encounters"}
+                            component={EncountersHomepage}
+                        />
+                        <Route
+                            exact
+                            path={"/encountercreate"}
+                            component={EncountersCreation}
+                        />
+                    </Switch>
                 </div>
             </DungeonContext.Provider>
         );
