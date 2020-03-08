@@ -1,7 +1,26 @@
+.encountersList-containerDiv{
+  text-align: center;
+}
 .encountersList-div {
   text-align: center;
+  border: 1px black solid;
+  margin: auto;
+  margin-top: 5px;
+  border-radius: 10px;
+  width: 300px
+}
+
+.encountersList-input{
+  text-align: center;
+  margin: 10px 5px 10px;
+}
+
+.encountersList-clear {
+  height: auto;
 }
 
 button {
   margin: 2px;
+  height: 20px;
+  padding: auto;
 }

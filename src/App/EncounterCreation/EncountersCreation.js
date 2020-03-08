@@ -4,7 +4,7 @@ import EncountersCreationForm from "./EncountersCreationForm/EncountersCreationF
 import HeroImage from "../../Landing-Page/Hero Image/HeroImage";
 import MonsterCreationForm from "./MonsterCreationForm/MonsterCreationForm";
 import DungeonContext from "../../Context/DungeonContext";
-import MonsterCreatedList from "./MonsterCreatedList/MonsterCreatedList";
+// import MonsterCreatedList from "./MonsterCreatedList/MonsterCreatedList";
 
 class EncountersCreation extends Component {
     state = {
@@ -36,7 +36,7 @@ class EncountersCreation extends Component {
             ) : (
                 <>
                     <MonsterCreationForm />
-                    <MonsterCreatedList />
+                    {/* <MonsterCreatedList /> */}
                 </>
             );
         return (

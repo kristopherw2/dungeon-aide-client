@@ -1,5 +1,6 @@
 import React, { Component } from "react";
-import MonsterCreationForm from "../MonsterCreationForm/MonsterCreationForm";
+import '../MonsterCreatedList/MonsterCreatedList.css'
+import '../../../Context/DungeonContext'
 
 class MonsterCreatedList extends Component {
     state = {
@@ -16,49 +17,38 @@ class MonsterCreatedList extends Component {
                 currentEncounter: toObjectEncounter
             });
 
-            const url = `http://localhost:8000/api/monsters/encounter/${toObjectEncounter.id}`;
-            const options = {
-                method: "Get",
-                headers: {
-                    "Content-Type": "application/json"
-                }
-            };
-
-            fetch(url, options)
-                .then(res => res.json())
-                .then(data => {
-                    this.setState({
-                        currentMonsters: [...data]
-                    });
-                });
+            
         }
     }
 
     render() {
-        const displayCreatedMonsters = this.state.currentMonsters;
+        const displayCreatedMonsters = this.props.updateMonsters;
         const mapCreatedMonsters = displayCreatedMonsters.map((item, index) => {
             return (
+                <div>
                 <ul>
-                    <li key={index-item.name}>
+                    <li key={index+=1}>
                         <b>Name: </b>
                         {item.name}
                     </li>
-                    <li key={index-item.health}>
+                    <li key={index+=1}>
                         <b>Health: </b>
                         {item.health}
                     </li>
-                    <li key={index-item.armor_class}>
+                    <li key={index+=1}>
                         <b>Armor: </b>
                         {item.armor_class}
                     </li>
-                    <li key={index-item.status_effects}>
+                    <li key={index+=1}>
                         <b>Status: </b>
                         {item.status_effects}
                     </li>
+                    <li><button onClick={() => this.props.deleteMonsters(item.id)}>Delete</button></li>
                 </ul>
+                </div>
             );
-        });
-        return <ul>{mapCreatedMonsters}</ul>;
+        }).reverse();
+        return <div className="monsterCreatedList-div1">{mapCreatedMonsters}</div>;
     }
 }
 

@@ -38,7 +38,7 @@ class EncountersResults extends Component {
     }
     render() {
         return (
-            <div>
+            <div className="encountersResults-div">
                 <EncountersList />
             </div>
         );

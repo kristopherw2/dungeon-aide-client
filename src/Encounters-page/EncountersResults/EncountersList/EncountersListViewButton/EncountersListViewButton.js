@@ -1,14 +1,61 @@
-import React, { Component } from 'react';
-import DungeonContext from '../../../../Context/DungeonContext'
+import React, { Component } from "react";
+import { withRouter } from 'react-router-dom'
+import DungeonContext from "../../../../Context/DungeonContext";
 class EncountersListViewButton extends Component {
+    constructor(props) {
+        super(props);
 
-  static contextType = DungeonContext
+        this.state = {
+            error: ""
+        };
+    }
 
-  render(){
-    return(
-      <button>View</button>
-    )
-  }
+    static contextType = DungeonContext;
+
+    handleSetLocalStorage = token => {
+        const newToken = JSON.stringify(token);
+        localStorage.setItem("current-monsters", newToken);
+    };
+
+    handleViewEncounterMonsters = encounterId => {
+        const url = `http://localhost:8000/api/monsters/encounter/${encounterId}`;
+        const options = {
+            method: "GET",
+            headers: {
+                "Content-Type": "application/json"
+            }
+        };
+        fetch(url, options)
+            .then(res => {
+                if (!res.ok) {
+                    throw new Error("Oh no! There was a problem!");
+                }
+                return res.json();
+            })
+            .then(data => {
+                console.log(data);
+                this.context.handleUpdateSelectedEncounter(data);
+                this.handleSetLocalStorage(data)
+                this.props.history.push("/viewencounter");
+            })
+            .catch(err => {
+                this.setState({
+                    error: err.message
+                });
+            });
+    };
+
+    render() {
+        return (
+            <button
+                onClick={() =>
+                    this.handleViewEncounterMonsters(this.props.encounterId)
+                }
+            >
+                View
+            </button>
+        );
+    }
 }
 
-export default EncountersListViewButton
+export default withRouter(EncountersListViewButton);

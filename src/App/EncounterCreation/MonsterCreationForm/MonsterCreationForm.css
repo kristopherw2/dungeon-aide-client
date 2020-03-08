@@ -5,9 +5,13 @@
 }
 
 input {
-    width: 50%;
+    width: 200px;
 }
 
 .monsterCreation-div1{
   text-align: center;
+}
+
+.backToLanding-monsterCreationForm {
+  margin-bottom: 10px;
 }
