@@ -39,7 +39,7 @@ export default class EncountersList extends Component {
                     <p>
                         {" "}
                         {item.names}{" "}
-                        <EncountersListViewButton encounterId={item.id} />
+                        <EncountersListViewButton encounterId={item.id} encounterName={item.names} />
                     </p>
                 </div>
             );

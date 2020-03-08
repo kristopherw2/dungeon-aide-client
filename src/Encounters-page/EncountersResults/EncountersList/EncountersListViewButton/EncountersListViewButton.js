@@ -12,7 +12,11 @@ class EncountersListViewButton extends Component {
 
     static contextType = DungeonContext;
 
-    handleSetLocalStorage = token => {
+    handleSetLocalStorageEncounterName = token =>{
+        localStorage.setItem("encounter-name", token)
+    }
+
+    handleSetLocalStorageMonsters = token => {
         const newToken = JSON.stringify(token);
         localStorage.setItem("current-monsters", newToken);
     };
@@ -33,9 +37,10 @@ class EncountersListViewButton extends Component {
                 return res.json();
             })
             .then(data => {
-                console.log(data);
                 this.context.handleUpdateSelectedEncounter(data);
-                this.handleSetLocalStorage(data)
+                this.context.handleUpdateCurrentEncounterName(this.props.encounterName)
+                this.handleSetLocalStorageEncounterName(this.props.encounterName)
+                this.handleSetLocalStorageMonsters(data)
                 this.props.history.push("/viewencounter");
             })
             .catch(err => {

@@ -5,10 +5,12 @@ const DungeonContext = React.createContext({
     createdEncounter: [],
     createdMonsterList: [],
     selectedEncounter: [],
+    currentEncounterName: "",
     handleUpdateEncountersArray: () => {},
     handleCreatedEncounter: () => {},
     handlleUpdateCreatedMonsterList: () => {},
-    handleUpdateSelectedEncounter: () => {}
+    handleUpdateSelectedEncounter: () => {},
+    handleUpdateCurrentEncounterName: () => {}
 });
 
 export default DungeonContext;

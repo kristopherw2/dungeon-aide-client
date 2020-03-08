@@ -13,7 +13,8 @@ class App extends Component {
             encountersArray: [],
             createdEncounter: [],
             createdMonsterList: [],
-            selectedEncounter: []
+            selectedEncounter: [],
+            currentEncounterName: ""
         };
     }
 
@@ -41,6 +42,12 @@ class App extends Component {
         });
     };
 
+    handleUpdateCurrentEncounterName = encounter => {
+        this.setState({
+            currentEncounterName: encounter
+        });
+    };
+
     render() {
         return (
             <DungeonContext.Provider
@@ -49,13 +56,15 @@ class App extends Component {
                     createdEncounter: this.state.createdEncounter,
                     createdMonsterList: this.state.createdMonsterList,
                     selectedEncounter: this.state.selectedEncounter,
+                    currentEncounterName: this.state.currentEncounterName,
                     handleUpdateEncountersArray: this
                         .handleUpdateEncountersArray,
                     handleCreatedEncounter: this.handleCreatedEncounter,
                     handleUpdateCreatedMonsterList: this
                         .handleUpdateCreatedMonsterList,
                     handleUpdateSelectedEncounter: this
-                        .handleUpdateSelectedEncounter
+                        .handleUpdateSelectedEncounter,
+                    handleUpdateCurrentEncounterName: this.handleUpdateCurrentEncounterName
                 }}
             >
                 <div>

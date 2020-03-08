@@ -1,0 +1,22 @@
+.viewEncounter-div1{
+  border: 1px solid black;
+  margin: 3px auto 3px auto;
+  border-radius: 10px;
+  width: 200px;
+}
+
+.viewEncounter-div2 {
+  text-align: center;
+}
+
+.viewEncounter-ul{
+  padding-left: 5%;
+  text-align: left;
+}
+
+.viewEncounter-h2{
+  text-align: center;
+}
+#viewEncounter-backToEncounters{
+  margin-bottom: 3px;
+}
