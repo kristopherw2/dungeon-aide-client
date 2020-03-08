@@ -7,7 +7,9 @@ class EncountersResults extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            encountersArray: []
+            encountersArray: [],
+            error: ""
+            
         };
     }
 
@@ -34,12 +36,19 @@ class EncountersResults extends Component {
             })
             .then(data => {
                 this.context.handleUpdateEncountersArray(data);
-            });
+            })
+            .catch(err => {
+                this.setState({
+                    error: err.message
+                    
+                })
+            })
     }
     render() {
         return (
             <div className="encountersResults-div">
                 <EncountersList />
+                {this.state.error}
             </div>
         );
     }

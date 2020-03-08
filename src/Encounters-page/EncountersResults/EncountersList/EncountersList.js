@@ -19,11 +19,11 @@ export default class EncountersList extends Component {
     };
 
     handleClearSearch = () => {
-      this.userSearch.value = "";
-      this.setState({
-        filteredEncounter: ''
-      })
-    }
+        this.userSearch.value = "";
+        this.setState({
+            filteredEncounter: ""
+        });
+    };
     render() {
         const encountersFiltered = this.context.encountersArray.filter(item => {
             return (
@@ -48,11 +48,16 @@ export default class EncountersList extends Component {
         return (
             <>
                 <div className="encountersList-input">
-                    <button className="encountersList-clear" onClick={() => this.handleClearSearch()}>X</button>
+                    <button
+                        className="encountersList-clear"
+                        onClick={() => this.handleClearSearch()}
+                    >
+                        X
+                    </button>
                     <input
                         type="text"
                         placeholder="Search Encounters"
-                        ref={input => this.userSearch = input}
+                        ref={input => (this.userSearch = input)}
                         onChange={event =>
                             this.handleEncounterSearchChange(event.target.value)
                         }

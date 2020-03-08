@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-import '../MonsterCreatedList/MonsterCreatedList.css'
-import '../../../Context/DungeonContext'
+import "../MonsterCreatedList/MonsterCreatedList.css";
+import "../../../Context/DungeonContext";
 
 class MonsterCreatedList extends Component {
     state = {
@@ -16,39 +16,49 @@ class MonsterCreatedList extends Component {
             this.setState({
                 currentEncounter: toObjectEncounter
             });
-
-            
         }
     }
 
     render() {
         const displayCreatedMonsters = this.props.updateMonsters;
-        const mapCreatedMonsters = displayCreatedMonsters.map((item, index) => {
-            return (
-                <div>
-                <ul>
-                    <li key={index+=1}>
-                        <b>Name: </b>
-                        {item.name}
-                    </li>
-                    <li key={index+=1}>
-                        <b>Health: </b>
-                        {item.health}
-                    </li>
-                    <li key={index+=1}>
-                        <b>Armor: </b>
-                        {item.armor_class}
-                    </li>
-                    <li key={index+=1}>
-                        <b>Status: </b>
-                        {item.status_effects}
-                    </li>
-                    <li><button onClick={() => this.props.deleteMonsters(item.id)}>Delete</button></li>
-                </ul>
-                </div>
-            );
-        }).reverse();
-        return <div className="monsterCreatedList-div1">{mapCreatedMonsters}</div>;
+        const mapCreatedMonsters = displayCreatedMonsters
+            .map((item, index) => {
+                return (
+                    <div>
+                        <ul>
+                            <li key={(index += 1)}>
+                                <b>Name: </b>
+                                {item.name}
+                            </li>
+                            <li key={(index += 1)}>
+                                <b>Health: </b>
+                                {item.health}
+                            </li>
+                            <li key={(index += 1)}>
+                                <b>Armor: </b>
+                                {item.armor_class}
+                            </li>
+                            <li key={(index += 1)}>
+                                <b>Status: </b>
+                                {item.status_effects}
+                            </li>
+                            <li>
+                                <button
+                                    onClick={() =>
+                                        this.props.deleteMonsters(item.id)
+                                    }
+                                >
+                                    Delete
+                                </button>
+                            </li>
+                        </ul>
+                    </div>
+                );
+            })
+            .reverse();
+        return (
+            <div className="monsterCreatedList-div1">{mapCreatedMonsters}</div>
+        );
     }
 }
 

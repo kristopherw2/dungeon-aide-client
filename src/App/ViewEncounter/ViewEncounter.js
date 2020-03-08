@@ -7,10 +7,16 @@ class ViewEncounter extends Component {
 
     componentDidMount() {
         if (localStorage.getItem("current-monsters")) {
+            const stringEncounter = localStorage.getItem("current-monsters");
+            const toJsonEncounter = JSON.parse(stringEncounter);
+            this.context.handleUpdateSelectedEncounter(toJsonEncounter)
         }
     }
     render() {
-        return <p>Yes</p>;
+        const displayMonstersFromEncounter = this.context.selectedEncounter.map(item => {
+            return  item.id
+        })
+    return <div>{displayMonstersFromEncounter}</div>;
     }
 }
 
