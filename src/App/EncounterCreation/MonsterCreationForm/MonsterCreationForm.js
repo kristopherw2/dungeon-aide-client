@@ -53,7 +53,6 @@ class MonsterCreationForm extends Component {
             monsterStatus
         } = event.target;
 
-        console.log(monsterName.value);
         const url = "http://localhost:8000/api/monsters";
         const options = {
             method: "Post",
@@ -87,7 +86,6 @@ class MonsterCreationForm extends Component {
     };
 
     handleDeleteMonster = monsterId => {
-        console.log(monsterId);
         const newMonstersArray = [];
         this.state.currentMonsters.filter(item => {
             return item.id !== monsterId ? newMonstersArray.push(item) : null;
