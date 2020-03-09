@@ -22,7 +22,7 @@ class MonsterCreationForm extends Component {
             this.setState({
                 currentEncounter: toObjectEncounter
             });
-            const url = `http://localhost:8000/api/monsters/encounter/${toObjectEncounter.id}`;
+            const url = `https://fierce-stream-23166.herokuapp.com/api/monsters/encounter/${toObjectEncounter.id}`;
             const options = {
                 method: "Get",
                 headers: {
@@ -53,7 +53,7 @@ class MonsterCreationForm extends Component {
             monsterStatus
         } = event.target;
 
-        const url = "http://localhost:8000/api/monsters";
+        const url = "https://fierce-stream-23166.herokuapp.com/api/monsters";
         const options = {
             method: "Post",
             body: JSON.stringify({
@@ -90,7 +90,7 @@ class MonsterCreationForm extends Component {
         this.state.currentMonsters.filter(item => {
             return item.id !== monsterId ? newMonstersArray.push(item) : null;
         });
-        const url = `http://localhost:8000/api/monsters/${monsterId}`;
+        const url = `https://fierce-stream-23166.herokuapp.com/api/monsters/${monsterId}`;
         const options = {
             method: "DELETE",
             headers: {
