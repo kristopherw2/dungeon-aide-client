@@ -35,12 +35,12 @@ export default class EncountersList extends Component {
 
         const displayEncounters = encountersFiltered.map((item, index) => {
             return (
-                <div key={index} className="encountersList-div">
-                    <p>
-                        {" "}
-                        {item.names}{" "}
-                        <EncountersListViewButton encounterId={item.id} encounterName={item.names} />
-                    </p>
+                <div key={index} className="encountersList-div2">
+                    <span> {item.names} </span>
+                    <EncountersListViewButton
+                        encounterId={item.id}
+                        encounterName={item.names}
+                    />
                 </div>
             );
         });
@@ -62,8 +62,8 @@ export default class EncountersList extends Component {
                             this.handleEncounterSearchChange(event.target.value)
                         }
                     />
+                    <div className="encountersList-div1">{displayEncounters}</div>
                 </div>
-                {displayEncounters}
             </>
         );
     }

@@ -22,7 +22,7 @@ class EncountersListViewButton extends Component {
     };
 
     handleViewEncounterMonsters = encounterId => {
-        const url = `https://fierce-stream-23166.herokuapp.com/api/monsters/encounter/${encounterId}`;
+        const url = `http://localhost:8000/api/monsters/encounter/${encounterId}`;
         const options = {
             method: "GET",
             headers: {
@@ -52,7 +52,7 @@ class EncountersListViewButton extends Component {
 
     render() {
         return (
-            <button
+            <button className="encountersListViewButton"
                 onClick={() =>
                     this.handleViewEncounterMonsters(this.props.encounterId)
                 }

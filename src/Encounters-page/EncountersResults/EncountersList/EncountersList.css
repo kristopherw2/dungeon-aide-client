@@ -1,26 +1,55 @@
-.encountersList-containerDiv{
-  text-align: center;
+.encountersList-div1 {
+    margin-top: 10px;
 }
-.encountersList-div {
-  text-align: center;
-  border: 1px black solid;
-  margin: auto;
-  margin-top: 5px;
-  border-radius: 10px;
-  width: 300px
-}
-
-.encountersList-input{
-  text-align: center;
-  margin: 10px 5px 10px;
+.encountersList-div2 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: #000000;
+    border: 1px solid white;
+    margin-top: 0.25rem;
+    border-radius: 1px;
+    color: white;
+    padding: 3px;
 }
 
-.encountersList-clear {
+.encountersList-div2 span {
+  margin: 3px;
+}
+
+.encountersList-input {
+    margin: 1rem;
+}
+
+.encountersList-input input{
+  width: auto;
   height: auto;
 }
 
-button {
-  margin: 2px;
-  height: 20px;
-  padding: auto;
+.encountersList-clear {
+    height: auto;
+}
+
+.encounterList-input button {
+    margin: 2px;
+    height: 20px;
+    padding: auto;
+}
+
+.encountersListViewButton {
+  margin: auto;
+    width: 40px;
+}
+
+@media screen and (min-width: 768px) {
+    .encountersList-div1 {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+    .encountersList-div2 {
+        width: 15%;
+        margin: 3px 0 3px 0;
+    }
 }

@@ -14,7 +14,7 @@ class EncountersCreationForm extends Component {
   handleEncounterPost = event => {
         event.preventDefault();
         const { encounterName } = event.target;
-        const url = "https://fierce-stream-23166.herokuapp.com/api/encounters";
+        const url = "http://localhost:8000/api/encounters";
         const options = {
             method: "Post",
             body: JSON.stringify({

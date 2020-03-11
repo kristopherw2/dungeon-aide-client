@@ -1,5 +1,9 @@
 .heroImage {
-    text-align: center;
-    border: 1px solid;
-    padding-top:5px;
+    display: flex;
+    color: #00AAA9;
+    font-family: "inter";
+    height: 100px;
+}
+.heroImage-h1 {
+    margin: auto;
 }

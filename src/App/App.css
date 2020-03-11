@@ -1,0 +1,27 @@
+@import url("https://fonts.googleapis.com/css?family=Inter|Open+Sans&display=swap");
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+html {
+    background-color: black;
+}
+
+p, span {
+    font-family: "open sans";
+}
+
+h1,
+h2 {
+    font-family: "inter";
+}
+
+.app {
+  position: relative;
+  min-height: 100vh;
+
+}

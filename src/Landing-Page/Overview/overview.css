@@ -1,6 +1,31 @@
 .overview {
+    display: flex;
+    flex-direction: column;
     text-align: center;
-    border: 1px solid;
-    height: 400px;
-    padding-top:50px;
+    padding: 10px;
+}
+
+.overview p {
+    color: white;
+    margin: 30px;
+    border-radius: 1px;
+}
+
+.overview button{
+    margin: 0 auto;
+    width: auto;
+    padding: 1.5px;
+    border: 1px solid 
+}
+
+.overview button:hover {
+    cursor: pointer;
+    color: #00AAA9
+}
+
+@media screen and (min-width: 1024px) {
+    .overview p{
+        margin: 30px auto;
+        width: 80%;
+    }
 }

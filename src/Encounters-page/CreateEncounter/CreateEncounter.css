@@ -1,3 +1,21 @@
 .createEncounter-div {
-  text-align: center;
+    text-align: center;
+    color: white;
+    border-top: 1px solid white;
+    border-bottom: 1px solid white;
+    margin: 0 .75rem;
+    padding: .25rem;
+}
+
+.createEncounter-div p {
+    margin: .75rem;
+}
+
+.createEncounter-div button {
+    margin-bottom:.75rem ;
+}
+
+.createEncounter-div button:hover {
+    cursor: pointer;
+    color: #00aaa9;
 }

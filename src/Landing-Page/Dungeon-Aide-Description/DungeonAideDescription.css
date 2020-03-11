@@ -1,6 +1,36 @@
 .dungeonAide {
-    text-align: center;
-    border: 1px solid;
-    height: 400px;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    background-color: black;
     padding: 10px;
+    border-top: 1.5px solid #B9B9B9;
+    border-bottom: 1.5px solid #B9B9B9;
+    margin: 0 .75rem;
 }
+
+#dungeonAide-h2 {
+    color: #00AAA9;
+    font-family: "open sans";
+    margin: .75rem 0;
+}
+
+#dungeonAide-p {
+    color: White;
+    padding: 3px;
+    margin-bottom: .75rem;
+}
+
+.dungeonAide p {
+    text-align: left;
+    text-indent: .75rem;
+    font-family: "open sans";
+}
+
+@media screen and (min-width: 1024px) {
+    #dungeonAide-p {
+        margin: .5rem auto;
+    }
+}
+
+

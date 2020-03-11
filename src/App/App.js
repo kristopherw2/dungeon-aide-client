@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import "./App.css"
 import { Route, Switch } from "react-router-dom";
 import LandingPage from "../Landing-Page/LandingPage";
 import EncountersHomepage from "../Encounters-page/Encounters";
@@ -67,7 +68,7 @@ class App extends Component {
                     handleUpdateCurrentEncounterName: this.handleUpdateCurrentEncounterName
                 }}
             >
-                <div>
+                <div className="app">
                     <Switch>
                         <Route exact path={"/"} component={LandingPage} />
                         <Route
