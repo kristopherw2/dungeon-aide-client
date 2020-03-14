@@ -1,13 +1,41 @@
 #monsterCreation-form {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  margin: auto;
+}
+
+.monsterCreation-div1 h2 {
+  color: white;
+  margin: 20px auto;
+  
 }
 
 .monsterCreation-div1{
-  text-align: center;
+  display: flex;
+  flex-direction: column;
+  border-top: 1px solid white;
+  margin: 30px 10px;
+  padding: 10px;
 }
 
-.backToLanding-monsterCreationForm {
-  margin-bottom: 10px;
+.monsterCreation-div1 p {
+  margin: auto;
+}
+.monsterCreation-div1 button {
+  margin: 10px auto;
+}
+
+.monsterCreation-div1 button:hover {
+  color: #00aaa9;
+  cursor: pointer;
+}
+
+#monsterCreation-form label {
+  width: 150px;
+  padding: 0;
+  margin: 0;
+  box-sizing: 0;
+
 }

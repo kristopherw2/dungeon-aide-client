@@ -1,13 +1,13 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import App from "./App";
 import { BrowserRouter } from "react-router-dom";
+import EncountersBackToLandingPage from "./EncountersBackToLandingPage";
 
 it("renders without crashing", () => {
     const div = document.createElement("div");
     ReactDOM.render(
         <BrowserRouter>
-            <App />
+            <EncountersBackToLandingPage />
         </BrowserRouter>,
         div
     );

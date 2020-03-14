@@ -16,7 +16,7 @@ class EncountersResults extends Component {
     static contextType = DungeonContext;
 
     componentDidMount() {
-        const url = `http://localhost:8000/api/encounters`;
+        const url = `https://fierce-stream-23166.herokuapp.com/api/encounters`;
         const options = {
             method: "Get",
             headers: {

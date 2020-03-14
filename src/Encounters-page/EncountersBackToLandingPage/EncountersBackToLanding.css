@@ -1,4 +1,9 @@
-.encountersBackToLanding-div{
-  text-align: center;
-  margin-top: 20px;
+.encountersBackToLanding-div {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.encountersBackToLanding-div button:hover {
+    cursor: pointer;
+    color: #00aaa9;
 }

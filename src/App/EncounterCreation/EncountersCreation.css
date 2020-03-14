@@ -1,5 +1,19 @@
 .encountersCreation-form {
-  display: block;
-  text-align: center;
-  margin-top: 20px;
+    display: block;
+    text-align: center;
+    margin-top: 1rem
+}
+
+.encountersCreation-form label {
+    color: white;
+    font-family: "open sans";
+}
+
+.encountersCreation-form button {
+    margin-left: 3px;
+}
+
+.encountersCreation-form button:hover {
+    cursor: pointer;
+    color: #00aaa9;
 }

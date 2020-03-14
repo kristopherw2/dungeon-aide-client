@@ -1,69 +1,63 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Dungeon Aide
 
-## Available Scripts
+## Live App
+https://dungeon-aide-client-16jxz38q8.now.sh/
 
-In the project directory, you can run:
+## Documentation
 
-### `npm start`
+**/api/encounters**
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+-   GET /api/encounters
+-   POST /api/encounters
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+**/api/monsters**
 
-### `npm test`
+-   GET /api/monsters/encounter/:encounter_id
+-   POST /api/monsters
+-   DELETE /api/monsters/:monster_id
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## ScreenShots
 
-### `npm run build`
+### LandingPage
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+![Landing Page](screenshots/LandingPage.PNG)
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+### Encounters List
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+![Encounters List](screenshots/EncountersList.PNG)
 
-### `npm run eject`
+### Specific Encounters
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+![Specific Encounters](screenshots/SpecificEncounters.PNG)
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### Encounter Creation
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+![Encounter Creation](screenshots/EncounterCreation.PNG)
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+### Monster Creation
 
-## Learn More
+![Monster Creation](screenshots/MonsterCreation.PNG)
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## App Summary
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Dungeon Aide is an attempt to have community ideas for funny,
+serious, or outlandish encounters for others to enjoy. If you're
+DM forgot to plan for the session, as most DM's do, they can
+just visit Dungeon Aide and look through the encounters
+already built! Dungeon Aide is not meant to build an entire
+campaign but only assist in the structuring of one!
 
-### Code Splitting
+## Built With
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+-   React
+-   Node
+-   Express
+-   PostgreSQL
 
-### Analyzing the Bundle Size
+## Road Map
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
-# dungeon-aide-client
+-   Implement User Accounts
+-   Users able to manipulate their encounters
+-   Links for sharing
+-   Saved Favorites
+-   Import pictures

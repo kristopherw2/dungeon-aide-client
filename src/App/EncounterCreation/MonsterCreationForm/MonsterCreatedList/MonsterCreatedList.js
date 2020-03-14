@@ -1,6 +1,4 @@
 import React, {Component} from 'react'
-import MonsterCreationForm from '../MonsterCreationForm/MonsterCreationForm'
-
 
 class MonsterCreatedList extends Component {
 

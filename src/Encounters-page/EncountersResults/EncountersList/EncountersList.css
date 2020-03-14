@@ -1,44 +1,53 @@
 .encountersList-div1 {
+    display: flex;
+    flex-direction: column;
     margin-top: 10px;
+    margin: auto;
 }
 .encountersList-div2 {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
     background-color: #000000;
-    border: 1px solid white;
-    margin-top: 0.25rem;
-    border-radius: 1px;
+    /* margin: auto; */
+    margin-top: 1rem;
     color: white;
     padding: 3px;
+    word-wrap: break-word;
+    border-radius: 10px;
 }
 
 .encountersList-div2 span {
-  margin: 3px;
+    margin: 3px;
 }
 
 .encountersList-input {
     margin: 1rem;
 }
 
-.encountersList-input input{
-  width: auto;
-  height: auto;
+.encountersList-input input {
+    width: auto;
+    height: auto;
+    margin-right: 3px;
 }
 
 .encountersList-clear {
     height: auto;
 }
 
-.encounterList-input button {
-    margin: 2px;
-    height: 20px;
-    padding: auto;
+.encountersList-clear:hover {
+    cursor: pointer;
+    color: #00aaa9;
 }
 
 .encountersListViewButton {
-  margin: auto;
+    margin: 3px auto;
     width: 40px;
+}
+
+.encountersListViewButton:hover{
+    cursor: pointer;
+    color: #00aaa9;
 }
 
 @media screen and (min-width: 768px) {
@@ -46,10 +55,9 @@
         display: flex;
         flex-direction: row;
         flex-wrap: wrap;
-        justify-content: space-between;
+        padding-left: 50px;
     }
     .encountersList-div2 {
-        width: 15%;
-        margin: 3px 0 3px 0;
+        flex-basis: 300px
     }
 }

@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import "./MonsterCreationForm.css";
 import DungeonContext from "../../../Context/DungeonContext";
 import MonsterCreatedList from "../MonsterCreatedList/MonsterCreatedList";
-import { withRouter } from 'react-router-dom'
+import { withRouter } from "react-router-dom";
 class MonsterCreationForm extends Component {
     state = {
         currentEncounter: "",
@@ -22,7 +22,7 @@ class MonsterCreationForm extends Component {
             this.setState({
                 currentEncounter: toObjectEncounter
             });
-            const url = `http://localhost:8000/api/monsters/encounter/${toObjectEncounter.id}`;
+            const url = `https://fierce-stream-23166.herokuapp.com/api/monsters/encounter/${toObjectEncounter.id}`;
             const options = {
                 method: "Get",
                 headers: {
@@ -52,8 +52,30 @@ class MonsterCreationForm extends Component {
             monsterArmor,
             monsterStatus
         } = event.target;
+        const numberRegex = /^[+]?([.]\d+|\d+[.]?\d*)$/;
+        const numberMonsterHealth = parseInt(monsterHealth.value, 10);
+        const numberMonseterArmor = parseInt(monsterArmor.value, 10);
+        console.log(numberMonsterHealth !== numberRegex);
+        console.log(`${numberMonseterArmor} ${numberMonsterHealth}`);
 
-        const url = "http://localhost:8000/api/monsters";
+        if (numberMonsterHealth < 0 || numberMonseterArmor < 0) {
+            this.setState({
+                error: "Health and Armor must be positive numbers"
+            });
+            return;
+        } else if (
+            monsterHealth.value.length > 4 ||
+            monsterName.value.length > 36 ||
+            monsterArmor.value.length > 4 ||
+            monsterStatus.value.length > 36
+        ) {
+            this.setState({
+                error: "Please keep the character count below 36 Name and Status and 4 digits for Health and Armor"
+            });
+            return
+        }
+
+        const url = "https://fierce-stream-23166.herokuapp.com/api/monsters";
         const options = {
             method: "Post",
             body: JSON.stringify({
@@ -79,7 +101,8 @@ class MonsterCreationForm extends Component {
             })
             .then(data => {
                 this.setState({
-                    currentMonsters: [...this.state.currentMonsters, ...data]
+                    currentMonsters: [...this.state.currentMonsters, ...data],
+                    error: ""
                 });
                 this.clearForm();
             });
@@ -90,7 +113,7 @@ class MonsterCreationForm extends Component {
         this.state.currentMonsters.filter(item => {
             return item.id !== monsterId ? newMonstersArray.push(item) : null;
         });
-        const url = `http://localhost:8000/api/monsters/${monsterId}`;
+        const url = `https://fierce-stream-23166.herokuapp.com/api/monsters/${monsterId}`;
         const options = {
             method: "DELETE",
             headers: {
@@ -120,73 +143,84 @@ class MonsterCreationForm extends Component {
     };
 
     handleRouteToEncounters = event => {
-        localStorage.clear();
-        this.props.history.push("/Encounters");
+        if (this.state.currentMonsters.length === 0) {
+            this.setState({
+                error: "Please create at least one monster per encounter!"
+            });
+            return;
+        } else {
+            localStorage.clear();
+            this.props.history.push("/Encounters");
+        }
     };
 
     render() {
         return (
-            <div className="monsterCreation-div1">
-                <h2>{this.state.currentEncounter.names}</h2>
-                <button className="backToLanding-monsterCreationForm" onClick={() => this.handleRouteToEncounters()}>
-                    Take me back to the landing
-                </button>
-                {this.state.error}
-                <form
-                    id="monsterCreation-form"
-                    onSubmit={event => this.handleCreateMonster(event)}
-                >
-                    <label
-                        className="monsterCreation-form-label"
-                        htmlFor="monsterName"
+            <>
+                <div className="monsterCreation-div1">
+                    <h2>{this.state.currentEncounter.names}</h2>
+                    <button
+                        className="backToLanding-monsterCreationForm"
+                        onClick={() => this.handleRouteToEncounters()}
                     >
-                        Name:
-                    </label>
-                    <input type="text" id="monsterName" required />
-                    <label
-                        className="monsterCreation-form-label"
-                        htmlFor="monsterHealth"
+                        Take me back
+                    </button>
+                    <p style={{color: "white"}}>{this.state.error}</p>
+                    <form
+                        id="monsterCreation-form"
+                        onSubmit={event => this.handleCreateMonster(event)}
                     >
-                        Health:
-                    </label>
-                    <input
-                        type="number"
-                        id="monsterHealth"
-                        name="monsterHealth"
-                        required
-                    />
-                    <label
-                        className="monsterCreation-form-label"
-                        htmlFor="monsterArmor"
-                    >
-                        Armor Class:
-                    </label>
-                    <input
-                        type="number"
-                        id="monsterArmor"
-                        name="monsterArmor"
-                        required
-                    />
-                    <label
-                        className="monsterCreation-form-label"
-                        htmlFor="monsterStatus"
-                    >
-                        Status Effects:
-                    </label>
-                    <input
-                        type="text"
-                        id="monsterStatus"
-                        name="monsterStatus"
-                        required
-                    />
-                    <button type="submit">Create Monster</button>
-                </form>
-
+                        <label
+                            className="monsterCreation-form-label"
+                            htmlFor="monsterName"
+                        >
+                            Name:
+                            <input type="text" id="monsterName" required />
+                        </label>
+                        <label
+                            className="monsterCreation-form-label"
+                            htmlFor="monsterHealth"
+                        >
+                            Health:
+                            <input
+                                type="number"
+                                id="monsterHealth"
+                                name="monsterHealth"
+                                required
+                            />
+                        </label>
+                        <label
+                            className="monsterCreation-form-label"
+                            htmlFor="monsterArmor"
+                        >
+                            Armor Class:
+                            <input
+                                type="number"
+                                id="monsterArmor"
+                                name="monsterArmor"
+                                required
+                            />
+                        </label>
+                        <label
+                            className="monsterCreation-form-label"
+                            htmlFor="monsterStatus"
+                        >
+                            Status Effects:
+                            <input
+                                type="text"
+                                id="monsterStatus"
+                                name="monsterStatus"
+                                required
+                            />
+                        </label>
+                        <button type="submit">Create Monster</button>
+                    </form>
+                </div>
                 <MonsterCreatedList
                     updateMonsters={this.state.currentMonsters}
                     deleteMonsters={event => this.handleDeleteMonster(event)}
                 />
-            </div>
+            </>
         );
     }
 }

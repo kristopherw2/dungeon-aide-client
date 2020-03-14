@@ -48,12 +48,6 @@ export default class EncountersList extends Component {
         return (
             <>
                 <div className="encountersList-input">
-                    <button
-                        className="encountersList-clear"
-                        onClick={() => this.handleClearSearch()}
-                    >
-                        X
-                    </button>
                     <input
                         type="text"
                         placeholder="Search Encounters"
@@ -62,7 +56,15 @@ export default class EncountersList extends Component {
                             this.handleEncounterSearchChange(event.target.value)
                         }
                     />
-                    <div className="encountersList-div1">{displayEncounters}</div>
+                    <button
+                        className="encountersList-clear"
+                        onClick={() => this.handleClearSearch()}
+                    >
+                        Clear Search
+                    </button>
+                    <div className="encountersList-div1">
+                        {displayEncounters}
+                    </div>
                 </div>
             </>
         );

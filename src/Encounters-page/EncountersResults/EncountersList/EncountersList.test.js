@@ -1,13 +1,14 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import App from "./App";
+import EncountersList from "./EncountersList";
 import { BrowserRouter } from "react-router-dom";
+import CreateEncounter from "../../CreateEncounter/CreateEncounter";
 
 it("renders without crashing", () => {
     const div = document.createElement("div");
     ReactDOM.render(
         <BrowserRouter>
-            <App />
+            <EncountersList />
         </BrowserRouter>,
         div
     );

@@ -8,6 +8,8 @@ class MonsterCreatedList extends Component {
         currentMonsters: []
     };
 
+    
+
     componentDidMount() {
         if (localStorage.getItem("current-encounter")) {
             const stringEncounter = localStorage.getItem("current-encounter");
@@ -26,24 +28,25 @@ class MonsterCreatedList extends Component {
                 return (
                     <div>
                         <ul>
-                            <li key={(index += 1)}>
+                            <li key={index+1}>
                                 <b>Name: </b>
                                 {item.name}
                             </li>
-                            <li key={(index += 1)}>
+                            <li key={index+2}>
                                 <b>Health: </b>
                                 {item.health}
                             </li>
-                            <li key={(index += 1)}>
+                            <li key={index+3}>
                                 <b>Armor: </b>
                                 {item.armor_class}
                             </li>
-                            <li key={(index += 1)}>
+                            <li key={index+4}>
                                 <b>Status: </b>
                                 {item.status_effects}
                             </li>
                             <li>
-                                <button
+                                <button className="deleteMonster"
+                                    key={item.id+1}
                                     onClick={() =>
                                         this.props.deleteMonsters(item.id)
                                     }
@@ -61,5 +64,7 @@ class MonsterCreatedList extends Component {
         );
     }
 }
+
+MonsterCreatedList.defaultProps = {updateMonsters: [] }
 
 export default MonsterCreatedList;

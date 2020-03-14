@@ -41,7 +41,9 @@ class ViewEncounter extends Component {
                     {this.context.currentEncounterName}
                 </h2>
                 <button id="viewEncounter-backToEncounters" onClick={() => this.handleBackToEncountersPage()}>Back To Encounters</button>
+                <div className="viewEncounter-div3">
                 {displayMonstersFromEncounter}
+                </div>
             </div>
         );
     }
